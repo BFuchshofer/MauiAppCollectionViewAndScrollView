@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="MauiAppCollectionViewAndScrollView.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MauiAppCollectionViewAndScrollView"
+       Title="MauiAppCollectionViewAndScrollView"
+       Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Title="With ScrollView"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="WithScrollView" />
+
+        <ShellContent Title="Without ScrollView"
+                      ContentTemplate="{DataTemplate local:MainPage2}"
+                      Route="WithoutScrollView" />
+    </TabBar>
+
+</Shell>

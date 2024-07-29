@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiAppCollectionViewAndScrollView.MainPage2"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:MauiAppCollectionViewAndScrollView"
+             Title="Without Scrollview"
+             x:DataType="app:MainViewModel">
+
+    <Grid Margin="16" ColumnDefinitions="*" RowDefinitions="Auto, *">
+        <HorizontalStackLayout Grid.Row="0"
+                               Grid.Column="0">
+            <Button Command="{Binding LoadDataCommand}"
+                    HorizontalOptions="Start"
+                    Text="Load Data" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" />
+        </HorizontalStackLayout>
+        <CollectionView Grid.Row="1"
+                        Grid.Column="0"
+                        ItemsSource="{Binding Data}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="8"
+                                   Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="app:Item">
+                    <StackLayout>
+                        <Label Text="{Binding Value1}" />
+                        <Label Text="{Binding Value2}" />
+                        <Label Text="{Binding Value3}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+
+</ContentPage>
